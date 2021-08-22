@@ -1,0 +1,83 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/ssubra15/Projects/Assignment/Assignment_Molex/Assignment.UITests/Assignment.UITests.csproj": {}
+  },
+  "projects": {
+    "/Users/ssubra15/Projects/Assignment/Assignment_Molex/Assignment.UITests/Assignment.UITests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/ssubra15/Projects/Assignment/Assignment_Molex/Assignment.UITests/Assignment.UITests.csproj",
+        "projectName": "Assignment.UITests",
+        "projectPath": "/Users/ssubra15/Projects/Assignment/Assignment_Molex/Assignment.UITests/Assignment.UITests.csproj",
+        "packagesPath": "/Users/ssubra15/.nuget/packages/",
+        "outputPath": "/Users/ssubra15/Projects/Assignment/Assignment_Molex/Assignment.UITests/obj/",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "configFilePaths": [
+          "/Users/ssubra15/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net461"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net461": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net461": {
+          "dependencies": {
+            "Acr.UserDialogs": {
+              "target": "Package",
+              "version": "[7.1.0.514, )"
+            },
+            "FreshMvvm": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.12.0, )"
+            },
+            "PropertyChanged.Fody": {
+              "target": "Package",
+              "version": "[3.4.0, )"
+            },
+            "Refractored.MvvmHelpers": {
+              "target": "Package",
+              "version": "[1.6.2, )"
+            },
+            "System.Net.Http": {
+              "target": "Package",
+              "version": "[4.3.4, )"
+            },
+            "Xam.Plugins.Settings": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Xamarin.UITest": {
+              "target": "Package",
+              "version": "[3.0.5, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

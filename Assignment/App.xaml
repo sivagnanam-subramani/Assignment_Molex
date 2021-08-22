@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Assignment.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary Source="Common/Themes/LightTheme.xaml" />
+
+            <ControlTemplate x:Key="LoginContolerPage">
+                <FlexLayout
+                    Direction="Column"
+                    FlexLayout.Grow="1"
+                    JustifyContent="Start">
+
+                    <Grid FlexLayout.Basis="100%">
+                        <FlexLayout Direction="Column" FlexLayout.Grow="1">
+
+                            <ContentPresenter
+                                BackgroundColor="{DynamicResource PageBackgroundColor}"
+                                FlexLayout.Basis="90%"
+                                FlexLayout.Grow="1">
+
+                                <!--  Content  -->
+
+                            </ContentPresenter>
+                            <!--<control:FooterView FlexLayout.Basis="10%"
+                                                BindingContext="{TemplateBinding BindingContext}"/>-->
+                        </FlexLayout>
+                        <Frame
+                            Margin="0,0,0,5"
+                            BackgroundColor="{DynamicResource TertiaryTextColor}"
+                            CornerRadius="10"
+                            IsVisible="{TemplateBinding BindingContext.IsError}"
+                            VerticalOptions="End">
+                            <StackLayout>
+                                <Label
+                                    FontSize="Large"
+                                    HorizontalOptions="CenterAndExpand"
+                                    HorizontalTextAlignment="Center"
+                                    Text="Uh oh!"
+                                    TextColor="{DynamicResource PrimaryTextColor}" />
+                                <Label
+                                    Margin="0,10,0,0"
+                                    FontSize="Small"
+                                    HorizontalOptions="CenterAndExpand"
+                                    HorizontalTextAlignment="Center"
+                                    Text="{TemplateBinding BindingContext.ErrorMessage}"
+                                    TextColor="{DynamicResource SecondaryTextColor}" />
+                            </StackLayout>
+                        </Frame>
+                    </Grid>
+
+                </FlexLayout>
+
+            </ControlTemplate>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

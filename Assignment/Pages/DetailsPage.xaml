@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Assignment.Pages.DetailsPage" NavigationPage.HasNavigationBar="False"
+             ControlTemplate="{StaticResource LoginContolerPage}">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>
+
+            <ImageButton Command="{Binding CloseCommand}" Margin="5" Grid.Row="0" HeightRequest="20" WidthRequest="20" Source="close.png" VerticalOptions="Center" HorizontalOptions="End"/>
+
+            <StackLayout Grid.Row="1" Orientation="Horizontal">
+                <Image HeightRequest="50" WidthRequest="50" Source="contact.png" VerticalOptions="Center" HorizontalOptions="Start"/>
+                <Label Text="{Binding Data.Title}" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+
+            <WebView Grid.Row="2" Source="{Binding Data.Url}"/>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

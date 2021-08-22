@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Assignment.Pages.DashboardPage"
+             xmlns:scroll="clr-namespace:Assignment.Common.Behaviors"
+             ControlTemplate="{StaticResource LoginContolerPage}"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Image Margin="5" Grid.Row="0" HeightRequest="70" WidthRequest="70" Source="assignment.png" />
+
+            <ListView Grid.Row="1" SelectedItem="{Binding SelectedItem}"  CachingStrategy="RecycleElement" SeparatorVisibility="None" VerticalOptions="FillAndExpand" HasUnevenRows="True" HorizontalOptions="FillAndExpand" ItemsSource="{Binding StoryDetails}">
+                <ListView.Behaviors>
+                    <scroll:InfiniteScrollBehavior LoadMoreCommand="{Binding LoadMoreDataCommand}" />
+                </ListView.Behaviors>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Image Margin="5" Grid.Column="0" HeightRequest="50" WidthRequest="50" Source="contact.png" VerticalOptions="Center"/>
+
+                                <StackLayout Orientation="Vertical" Grid.Column="1" Padding="2" VerticalOptions="CenterAndExpand">
+                                    <Label Grid.Row="0" Text="{Binding Title}" />
+                                    <Label Grid.Row="1" Text="{Binding Type}" />
+                                </StackLayout>
+
+                                <Image Margin="5" Grid.Column="2" HeightRequest="20" WidthRequest="20" Source="star.png" VerticalOptions="Center"/>
+
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.Footer>
+                    <ActivityIndicator
+                         IsVisible="{Binding IsLoadingMore}"
+                    IsRunning="true"
+                    MinimumHeightRequest="60"
+                    MinimumWidthRequest="60"
+                    Color="Black" />
+                </ListView.Footer>
+            </ListView>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

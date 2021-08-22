@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Assignment.Pages.LoginPage"
+              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="true"
+    BackgroundColor="White"
+    NavigationPage.HasNavigationBar="False"
+    ControlTemplate="{StaticResource LoginContolerPage}"
+    xmlns:triggers="clr-namespace:Assignment.Common.Triggers"
+    xmlns:controls="clr-namespace:Assignment.Common.Controls"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+    >
+    <ContentPage.Content>
+
+            
+
+
+            <Grid
+                Margin="30" ColumnSpacing="5"
+                
+                RowSpacing="40">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Switch x:Name="ThemeSwitch" Grid.Row="0" HorizontalOptions="End" Toggled="Switch_Toggled"/>
+
+                <Image Grid.Row="1" HeightRequest="100" WidthRequest="100" Source="assignment.png" />
+
+                <StackLayout
+                 
+                    Grid.Row="2"
+                    Orientation="Vertical"
+                    Spacing="10"
+                    VerticalOptions="Center">
+
+                    <StackLayout
+                        BackgroundColor="White">
+                        <controls:CustomEntry
+                            x:Name="Email"
+                            Margin="2"
+                            BackgroundColor="White"
+                            Keyboard="Email"
+                            Placeholder="Username (Email)"
+                            PlaceholderColor="Gray"
+                            Text="{Binding EmailId}"
+                            TextColor="{DynamicResource PrimaryTextColor}" />
+                        <BoxView Margin="5,0,0,0" HeightRequest="1" BackgroundColor="Black"/>
+                    </StackLayout>
+
+                    <StackLayout BackgroundColor="White">
+                        <Grid
+                            BackgroundColor="White">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <controls:CustomEntry
+                            x:Name="Password"
+                            Grid.Column="0"
+                            Margin="2"
+                            BackgroundColor="White"
+                            IsPassword="{Binding Source={x:Reference TogglePasswordTrigger}, Path=HidePassword}"
+                            Placeholder="Password"
+                            PlaceholderColor="Gray"
+                            Text="{Binding Password}"
+                            TextColor="{DynamicResource PrimaryTextColor}" />
+
+                            <ImageButton VerticalOptions="Center"
+                                         
+                        Grid.Column="1"
+                         Margin="0,0,10,0"
+                         HeightRequest="20"
+                         HorizontalOptions="End"
+                         Source="ic_eye_hide">
+                                <ImageButton.Triggers>
+                                    <EventTrigger Event="Clicked">
+                                        <triggers:TogglePasswordTriggerAction ShowIcon="ic_eye"
+                                                                    HideIcon="ic_eye_hide"
+                                                                    x:Name="TogglePasswordTrigger"/>
+                                    </EventTrigger>
+                                </ImageButton.Triggers>
+                            </ImageButton>
+                        </Grid>
+                        <BoxView Margin="5,0,0,0" HeightRequest="1" BackgroundColor="Black"/>
+                    </StackLayout>
+
+                    <BoxView HeightRequest="10" />
+                    <Button
+                        BackgroundColor="#0178d4"
+                        Command="{Binding SignInCommand}"
+                        CornerRadius="5"
+                        HorizontalOptions="FillAndExpand"
+                        Text="Get Login"
+                        TextColor="{DynamicResource PrimaryTextColor}"
+                        />
+
+                    <BoxView HeightRequest="10" />
+
+                     <ActivityIndicator
+                         IsVisible="{Binding IsSigningIn}"
+                    IsRunning="true"
+                    MinimumHeightRequest="60"
+                    MinimumWidthRequest="60"
+                    Color="Black" />
+                </StackLayout>
+            </Grid>
+
+    </ContentPage.Content>
+</ContentPage>
